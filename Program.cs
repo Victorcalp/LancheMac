@@ -1,10 +1,16 @@
 using LanchesMac.Context;
+using LanchesMac.Repository;
+using LanchesMac.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//adicionando a Injeção de Dependência
+builder.Services.AddTransient<ILanchesRepository, LanchesRepository>();
+builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 
 //Conexão com BD
 var connection = builder.Configuration.GetConnectionString("DefaultConnection");
