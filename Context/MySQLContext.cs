@@ -5,11 +5,11 @@ namespace LanchesMac.Context
 {
     public class MySQLContext : DbContext
     {
-        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options)
-        { }
+        public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
 
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Lanche> Lanches { get; set; }
+        public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
 
     }
 }
